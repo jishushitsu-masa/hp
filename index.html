@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元塾講師マサちゃんの自習室 | 個別塾のように寄り添い、集団塾のように教えてくれる自習室</title>
+    <!-- 温かみと誠実さを両立する丸ゴシック -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #f39800;      /* ロゴのオレンジ */
+            --navy: #2c4a73;        /* ロゴのネイビー */
+            --bg-color: #fffdfa;    /* 真っ白ではなく、わずかに温かいアイボリー */
+            --accent-bg: #f9f5ed;   /* セクション背景用の優しいベージュ */
+            --text-main: #4a423e;   /* 黒ではなく、少し茶色みのあるグレー */
+            --text-light: #827b77;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            letter-spacing: 0.03em;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a { text-decoration: none; }
+        
+        /* ヘッダー */
+        header {
+            background-color: var(--white);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px dashed #f0ece1;
+        }
+
+        .logo img { height: 50px; }
+
+        .header-btn {
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: opacity 0.3s;
+        }
+        .header-btn:hover { opacity: 0.8; }
+
+        /* ヒーローセクション */
+        .hero {
+            padding: 80px 20px 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, #f9f5ed 100%);
+            overflow: hidden; /* 斜め文字がはみ出ないように */
+        }
+
+        /* ポスター風の斜めキャッチコピー */
+        .dynamic-catch {
+            transform: rotate(-5deg);
+            margin: 10px auto 40px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .dynamic-catch .line {
+            display: inline-block;
+            font-weight: 700;
+            line-height: 1.2;
+            /* 白フチと少しの影でポスターのような立体感を出す */
+            text-shadow: 
+                -2px -2px 0 var(--white),  
+                 2px -2px 0 var(--white),
+                -2px  2px 0 var(--white),
+                 2px  2px 0 var(--white),
+                 5px  5px 0px rgba(44, 74, 115, 0.1);
+        }
+
+        .dynamic-catch .line1 {
+            font-size: 1.8rem;
+            margin-left: -20px;
+            transform: rotate(1deg); /* 個別に少し角度を変えて躍動感を */
+        }
+
+        .dynamic-catch .line2 {
+            font-size: 2.2rem;
+            margin-top: 5px;
+            margin-left: 10px;
+            transform: rotate(-1deg);
+        }
+
+        .dynamic-catch .line3 {
+            font-size: 3.0rem;
+            margin-top: 5px;
+            margin-left: 100px;
+            transform: rotate(2deg);
+        }
+
+        .dynamic-catch .text-navy {
+            color: var(--navy);
+        }
+
+        .dynamic-catch .text-orange {
+            color: var(--orange);
+            text-shadow: 
+                -2px -2px 0 var(--white),  
+                 2px -2px 0 var(--white),
+                -2px  2px 0 var(--white),
+                 2px  2px 0 var(--white),
+                 5px  5px 0px rgba(243, 152, 0, 0.2);
+        }
+
+        /* 悩みセクション（語りかけ風） */
+        .voice-section {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 700px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+            border: 2px solid #f7f3eb;
+        }
+
+        .voice-title {
+            text-align: center;
+            color: var(--orange);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .voice-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        .voice-list li {
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            background-color: #fdfdfc;
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        
+        .voice-list li::before {
+            content: '💭';
+            font-size: 1.2rem;
+        }
+
+        /* 特徴セクション */
+        .feature-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 35px 25px;
+            border-radius: 20px;
+            border-top: 5px solid var(--navy);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* 講師紹介セクション */
+        .instructor-section {
+            padding: 60px 0;
+        }
+
+        .instructor-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 2px solid var(--accent-bg);
+            margin-top: 20px;
+        }
+
+        .instructor-img {
+            flex: 0 0 160px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .instructor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #f0ece1; /* 画像がない時の背景色 */
+            display: block;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 160px;
+        }
+
+        .instructor-info h3 {
+            color: var(--navy);
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .instructor-info .career {
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: #fff8eb;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .instructor-info p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .career-list {
+            list-style: none;
+            padding: 15px 20px;
+            margin: 15px 0 0 0;
+            background: #fdfdfc;
+            border-radius: 12px;
+            border: 1px dashed #e8e4db;
+        }
+
+        .career-list li {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .career-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 想いセクション（手紙風） */
+        .message-section {
+            background-color: var(--accent-bg);
+            padding: 60px 20px;
+            margin: 60px 0;
+            border-radius: 30px;
+        }
+
+        .message-box {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .message-box h2 {
+            color: var(--orange);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+        }
+
+        .message-box p {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        /* 実績セクション */
+        .record-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .record-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            background: var(--white);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid #e8e4db;
+            font-size: 0.95rem;
+        }
+
+        /* 会場案内 */
+        .access-section {
+            padding: 60px 0;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .store-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid var(--accent-bg);
+            text-align: center;
+        }
+
+        .store-card h3 {
+            color: var(--navy);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .reservation-badge {
+            background-color: #fff1f1;
+            color: #d9534f;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid #ffcccc;
+            font-weight: 700;
+        }
+
+        /* 会場画像 */
+        .venue-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .venue-images img {
+            width: calc(50% - 5px);
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            background-color: #f0ece1;
+            display: block;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 120px;
+        }
+
+        /* 会場予約ボタン */
+        .venue-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            background-color: #06c755;
+            color: var(--white);
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(6,199,85,0.2);
+        }
+
+        .venue-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* ボタンエリア */
+        .action-area {
+            text-align: center;
+            padding: 50px 20px 70px;
+            background-color: var(--white);
+            border-radius: 30px;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 320px;
+            padding: 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-taiken {
+            background-color: var(--orange);
+            color: var(--white);
+        }
+
+        .btn-line {
+            background-color: #06c755;
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .store-grid { grid-template-columns: 1fr; }
+            .voice-section { padding: 30px 20px; }
+            
+            .dynamic-catch { transform: rotate(-4deg); margin-bottom: 30px; }
+            .dynamic-catch .line1 { font-size: 1.2rem; margin-left: -10px; }
+            .dynamic-catch .line2 { font-size: 1.4rem; margin-left: 0px; }
+            .dynamic-catch .line3 { font-size: 2.2rem; margin-left: 40px; }
+            
+            .instructor-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.jpg" alt="元塾講師マサちゃんの自習室">
+    </div>
+    <a href="https://jishushitsu-masa.github.io/taiken/" class="header-btn">無料体験へ</a>
+</header>
+
+<main>
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="dynamic-catch">
+                <span class="line line1"><span class="text-navy">個別塾のように</span><span class="text-orange">寄り添い、</span></span><br>
+                <span class="line line2"><span class="text-navy">集団塾のように</span><span class="text-orange">教えてくれる</span></span><br>
+                <span class="line line3"><span class="text-navy">自習室</span></span>
+            </h1>
+            
+            <p style="font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 15px;">
+                家より集中できて、塾より自分のペースで。
+            </p>
+            <p>元塾講師マサちゃんがつくった、<br>中学生のための「第２の勉強部屋」です。</p>
+            
+            <!-- 公式LINEバナー（追加部分） -->
+            <div style="margin-top: 40px;">
+                <p style="font-size: 0.95rem; color: var(--navy); margin-bottom: 10px; font-weight: 700; letter-spacing: 0.05em;">＼ 塾選びのご相談だけでも大歓迎！ ／</p>
+                <a href="https://lin.ee/uppfZHH" class="btn btn-line" style="box-shadow: 0 8px 25px rgba(6,199,85,0.3); margin: 0 auto;">
+                    💬 公式LINEを友だち追加する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 共感セクション（保護者の声） -->
+        <section class="voice-section">
+            <h2 class="voice-title">保護者の方から、こんな声をよく聞きます。</h2>
+            <ul class="voice-list">
+                <li>家だとどうしてもスマホに手が伸びてしまう…</li>
+                <li>塾には通っているけれど、本当に身についているか不安</li>
+                <li>部活が忙しくて、決まった曜日に通うのが大変</li>
+                <li>わからない問題だけ、その場ですぐに教えてほしい</li>
+            </ul>
+            <p style="text-align: center; margin-top: 25px; font-weight: 700; color: var(--navy);">
+                そのお悩み、マサちゃんの自習室が一緒に解決します！
+            </p>
+        </section>
+
+        <!-- 特徴セクション -->
+        <section class="feature-section">
+            <h2 class="section-title">マサちゃんの自習室ってどんなところ？</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>① つまずいた時はいつでも質問OK</h3>
+                    <p>元進学塾講師のマサちゃんがいつもいます。ただ場所を貸すだけでなく、5教科の「わからない」に寄り添って、丁寧にアドバイスします。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>② 行きたい時に行ける気軽さ</h3>
+                    <p>入会金はゼロ、1時間500円で安心の都度払い制です。部活の予定やテスト期間に合わせて、自分のスケジュールで無理なく通うことができます。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>③ 塾選びの相談も大歓迎です</h3>
+                    <p>集団塾・個別指導・家庭教師、すべてを経験してきました。「うちの子にはどんな勉強法が合う？」といったご相談にも、客観的にお答えします。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 講師紹介セクション -->
+        <section class="instructor-section">
+            <h2 class="section-title">マサちゃんってどんな人？</h2>
+            <div class="instructor-card">
+                <div class="instructor-img">
+                    <img src="images/masa.jpg" alt="マサちゃん画像">
+                </div>
+                <div class="instructor-info">
+                    <h3>マサちゃん</h3>
+                    <span class="career">元・都内進学塾講師 / ぶどう・りんご農家</span>
+                    <p>都内の集団進学塾で5年間講師を務めたのち、地元に戻り現在は農家をしています。東京時代に杉並区立和田中（藤原和博校長時代）で学習ボランティアを経験し、親でも先生でもない「斜めの関係」や「地域で子どもを育てる」ことの重要性を強く実感しました。この自習室も、そんな地域の温かい居場所の一つになればと思っています。勉強のやり方から塾選びまで、何でもお気軽にご相談ください！</p>
+                    <ul class="career-list">
+                        <li>長野高校 卒業 / 法政大学 卒業</li>
+                        <li>都内進学塾講師（5年） / 杉並区立和田中 学習ボランティア（2年）</li>
+                        <li>現在、小布施町にて ぶどう・りんご農家</li>
+                        <li>小布施町商工会、小布施町消防団 所属</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- メッセージ（想い） -->
+    <section class="message-section">
+        <div class="container message-box">
+            <h2>自分で「できた！」と思える経験を。</h2>
+            <p>
+                質の高い授業を受けるのは素晴らしいことですが、それだけで終わってしまい、テスト本番で「自分で解けない」と悩む子はたくさんいます。
+            </p>
+            <p>
+                本当に成績が伸びるのは、生徒自身が「自分で考え、手を動かした時間」です。だからこそ、私は「授業」ではなく、生徒の「やる気」を引き出し、自学自習をサポートする形を選びました。
+            </p>
+            <p>
+                ガチガチの塾ではありません。リラックスしながらも、しっかり自分の課題と向き合える。そんな温かい空間を用意して待っています。
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 実績セクション -->
+        <section class="record-section">
+            <h2 class="section-title" style="margin-bottom: 10px;">合格実績</h2>
+            <p style="color: var(--text-light); font-size: 0.95rem;">自分のペースで頑張って、志望校の合格を掴み取りました。</p>
+            <div class="record-tags">
+                <span class="tag">長野高校</span>
+                <span class="tag">須坂高校</span>
+                <span class="tag">長野高専</span>
+                <span class="tag">長野吉田高校</span>
+                <span class="tag">市立長野高校</span>
+                <span class="tag">中野西高校</span>
+                <span class="tag">長野商業高校</span>
+                <span class="tag">長野工業高校</span>
+                <span class="tag">須坂創成高校</span>
+                <span class="tag">中野立志舘高校</span>
+            </div>
+        </section>
+
+        <!-- 会場案内 -->
+        <section class="access-section">
+            <h2 class="section-title">会場のご案内</h2>
+            <div class="store-grid">
+                <div class="store-card">
+                    <h3>おぶせ会場 <span class="reservation-badge">予約制</span></h3>
+                    <p style="color: var(--text-main);">
+                        月曜日・金曜日<br>19:00〜21:00<br>
+                        料金：1時間500円<br>
+                        <span style="font-size: 0.9rem; color: var(--text-light);">岩松院にて運営中</span>
+                    </p>
+                    <div class="venue-images">
+                        <img src="images/ganshoin1.jpg" alt="岩松院">
+                        <img src="images/ganshoin2.jpg" alt="教室">
+                    </div>
+                    <a href="https://lin.ee/uppfZHH" class="venue-btn">💬 ご予約はこちら</a>
+                </div>
+                <div class="store-card">
+                    <h3>すざか会場 <span class="reservation-badge">予約制</span></h3>
+                    <p style="color: var(--text-main);">
+                        火曜日・木曜日<br>18:00〜20:00<br>
+                        料金：1時間500円<br>
+                        <span style="font-size: 0.9rem; color: var(--text-light);">bota（シルキー1階）にて運営中</span>
+                    </p>
+                    <div class="venue-images">
+                        <img src="images/bota1.jpg" alt="bota">
+                        <img src="images/bota2.jpg" alt="教室">
+                    </div>
+                    <a href="https://lin.ee/uppfZHH" class="venue-btn">💬 ご予約はこちら</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ボタンエリア -->
+    <div class="container">
+        <section class="action-area">
+            <h2 style="color: var(--navy); font-size: 1.3rem; margin-bottom: 25px;">まずは、無料体験でお待ちしています。</h2>
+            <p style="margin-bottom: 30px; font-size: 0.95rem;">「ちょっと見学してみたい」というご相談も大歓迎です！</p>
+            <a href="https://jishushitsu-masa.github.io/taiken/" class="btn btn-taiken">
+                ✨ 無料体験を予約する
+            </a>
+            <a href="https://lin.ee/uppfZHH" class="btn btn-line">
+                💬 公式LINEで相談してみる
+            </a>
+        </section>
+    </div>
+
+<footer>
+    <p>&copy; 2026 元塾講師マサちゃんの自習室</p>
+</footer>
+
+</body>
+</html>
