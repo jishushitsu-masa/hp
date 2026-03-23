@@ -568,6 +568,38 @@
             </div>
         </section>
 
+                    {/* FAQ Section */}
+                    <section className="py-20 px-4 bg-brand-bg">
+                        <div className="max-w-3xl mx-auto">
+                            <SectionHeader title="よくある質問" subtitle="FAQ" />
+                            <div className="space-y-4">
+                                <Accordion 
+                                    question="予約は必要ですか？" 
+                                    answer={
+                                        <span>
+                                            はい、必要です。席数に限りがあるため、<strong className="text-brand-deep">事前の公式LINEからのご予約</strong>をお願いしております。
+                                        </span>
+                                    } 
+                                />
+                                <Accordion 
+                                    question="先生に質問はできますか？" 
+                                    answer={
+                                        <span>
+                                            <strong className="text-brand-deep">はい、もちろん可能です。</strong><br/>
+                                            講師が常に常駐して頻繁に机を周ります。講師側から苦手箇所などを見つけて積極的に声をかけますので、「分からないことがあるけどなかなか質問できない」という内気なお子様でも安心です。<br/>
+                                            また、具体的な問題の解説だけでなく、学習の進め方などのアドバイスも随時行っています。
+                                        </span>
+                                    } 
+                                />
+                                <Accordion 
+                                    question="中学生以外も利用できますか？" 
+                                    answer="現在は中学1年生〜3年生を対象としております。学年を絞ることで、学習に適した環境を維持しています。" 
+                                />
+                            </div>
+                        </div>
+                    </section>
+
+
         <section class="action-area">
             <h2 style="color: var(--navy); font-size: 1.3rem; margin-bottom: 25px;">まずは、無料体験でお待ちしています。</h2>
             <a href="https://jishushitsu-masa.github.io/taiken/" class="btn btn-taiken">無料体験を予約する</a>
