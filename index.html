@@ -322,7 +322,30 @@
             margin-bottom: 20px;
         }
 
-        /* FAQセクション（新規追加） */
+        /* 実績セクション (index1.txtより転記) */
+        .record-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .record-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            background: var(--white);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid #e8e4db;
+            font-size: 0.95rem;
+        }
+
+        /* FAQセクション */
         .faq-section {
             padding: 60px 0 20px;
         }
@@ -349,11 +372,11 @@
 
         .faq-question {
             cursor: pointer;
-            list-style: none; /* デフォルトの三角形を消す */
+            list-style: none;
         }
 
         .faq-question::-webkit-details-marker {
-            display: none; /* Safari用 */
+            display: none;
         }
 
         .faq-question-content {
@@ -497,7 +520,7 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 1.05rem;
-            margin: 10px auto; /* 左右をautoにすることで中央配置を担保 */
+            margin: 10px auto;
             transition: all 0.3s;
         }
 
@@ -518,7 +541,6 @@
             .site-title { font-size: 0.85rem; }
             .header-btn { padding: 8px 15px; font-size: 0.85rem; }
 
-            /* キャッチコピーの中央配置 */
             .dynamic-catch { 
                 transform: rotate(-3deg); 
                 margin: 0 auto 30px; 
@@ -563,7 +585,7 @@
     <section class="hero">
         <div class="container">
             <h1 class="dynamic-catch">
-                <span class="line line1"><span class="text-navy">個別塾のように</span><span class="text-orange">寄り添い、</span></span>
+                <span class="line line1"><span class="text-navy">個別塾のように</span><span class="text-orange">寄り添い,</span></span>
                 <span class="line line2"><span class="text-navy">集団塾のように</span><span class="text-orange">教えてくれる</span></span>
                 <span class="line line3"><span class="text-navy">自習室</span></span>
             </h1>
@@ -646,6 +668,24 @@
     </section>
 
     <div class="container">
+
+        <!-- 実績セクション (index1.txtより転記・会場案内へ上へ配置) -->
+        <section class="record-section">
+            <h2 class="section-title" style="margin-bottom: 10px;">合格実績</h2>
+            <p style="color: var(--text-light); font-size: 0.95rem;">自分のペースで頑張って、志望校の合格を掴み取りました。</p>
+            <div class="record-tags">
+                <span class="tag">長野高校</span>
+                <span class="tag">須坂高校</span>
+                <span class="tag">長野高専</span>
+                <span class="tag">長野吉田高校</span>
+                <span class="tag">市立長野高校</span>
+                <span class="tag">中野西高校</span>
+                <span class="tag">長野商業高校</span>
+                <span class="tag">長野工業高校</span>
+                <span class="tag">須坂創成高校</span>
+                <span class="tag">中野立志舘高校</span>
+            </div>
+        </section>
         
          <section class="access-section">
             <h2 class="section-title">会場のご案内</h2>
@@ -671,7 +711,7 @@
             </div>
         </section>
 
-      <!-- 追加したFAQセクション -->
+        <!-- FAQセクション -->
         <section class="faq-section">
             <h2 class="section-title">よくある質問</h2>
             <div class="faq-container">
