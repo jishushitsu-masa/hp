@@ -334,84 +334,90 @@
 
         .faq-item {
             background-color: var(--white);
-            border: 2px solid var(--accent-bg);
-            border-radius: 16px;
-            margin-bottom: 15px;
+            border: 1px solid #e8e4db;
+            border-radius: 12px;
+            margin-bottom: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
             transition: all 0.3s;
         }
 
         .faq-item[open] {
-            border-color: #f7e0bc;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-color: var(--orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .faq-question {
-            padding: 20px 25px;
             cursor: pointer;
-            font-weight: 700;
-            color: var(--navy);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             list-style: none; /* デフォルトの三角形を消す */
-            font-size: 1.05rem;
         }
 
         .faq-question::-webkit-details-marker {
             display: none; /* Safari用 */
         }
 
+        .faq-question-content {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover .faq-question-content {
+            background-color: #fffaf0;
+        }
+
         .faq-question-inner {
             display: flex;
             align-items: flex-start;
             gap: 12px;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
 
         .faq-question-inner::before {
             content: 'Q.';
             color: var(--orange);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 900;
-            line-height: 1.2;
         }
 
-        /* 開閉アイコン（＋と－） */
         .faq-icon {
             color: var(--orange);
-            font-weight: bold;
-            font-size: 1.2rem;
             transition: transform 0.3s;
             flex-shrink: 0;
-            margin-left: 10px;
+            margin-top: 4px;
+            margin-left: 12px;
         }
 
         .faq-item[open] .faq-icon {
-            transform: rotate(45deg); /* ＋を×にするアニメーション */
+            transform: rotate(180deg);
         }
 
         .faq-answer {
-            padding: 0 25px 25px 25px;
-            color: var(--text-main);
-            line-height: 1.7;
-            font-size: 0.95rem;
+            background-color: #fffaf0;
+            border-top: 1px dashed #e8e4db;
         }
 
         .faq-answer-inner {
+            padding: 20px 24px 24px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            border-top: 1px dashed #e8e4db;
-            padding-top: 20px;
+            color: var(--text-main);
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         .faq-answer-inner::before {
             content: 'A.';
-            color: var(--navy);
+            color: var(--orange);
             font-weight: 900;
-            font-size: 1.3rem;
-            line-height: 1.2;
+            font-size: 1.2rem;
+            margin-top: 2px;
         }
 
         /* 会場案内 */
@@ -531,8 +537,9 @@
                 margin-top: 5px;
             }
             
-            .faq-question { padding: 15px 20px; font-size: 1rem; }
-            .faq-answer { padding: 0 20px 20px 20px; }
+            .faq-question-content { padding: 16px 20px; }
+            .faq-question-inner { font-size: 1rem; }
+            .faq-answer-inner { padding: 16px 20px 20px; font-size: 0.95rem; }
 
             .store-grid { grid-template-columns: 1fr; }
             .instructor-card { flex-direction: column; text-align: center; }
@@ -646,8 +653,10 @@
             <div class="faq-container">
                 <details class="faq-item">
                     <summary class="faq-question">
-                        <span class="faq-question-inner">予約は必要ですか？</span>
-                        <span class="faq-icon">＋</span>
+                        <div class="faq-question-content">
+                            <span class="faq-question-inner">予約は必要ですか？</span>
+                            <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
                     </summary>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
@@ -658,8 +667,10 @@
                 
                 <details class="faq-item">
                     <summary class="faq-question">
-                        <span class="faq-question-inner">先生に質問はできますか？</span>
-                        <span class="faq-icon">＋</span>
+                        <div class="faq-question-content">
+                            <span class="faq-question-inner">先生に質問はできますか？</span>
+                            <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
                     </summary>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
@@ -674,8 +685,10 @@
 
                 <details class="faq-item">
                     <summary class="faq-question">
-                        <span class="faq-question-inner">中学生以外も利用できますか？</span>
-                        <span class="faq-icon">＋</span>
+                        <div class="faq-question-content">
+                            <span class="faq-question-inner">中学生以外も利用できますか？</span>
+                            <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
                     </summary>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
